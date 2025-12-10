@@ -1,81 +1,662 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Geist&display=swap" rel="stylesheet" />
-  <link href="./css/main.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맹구 김철수 - 서각</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #ffffff;
+            color: #2c2c2c;
+            overflow-x: hidden;
+        }
+
+        /* 헤더 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            cursor: pointer;
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .logo-title {
+            font-size: 20px;
+            font-weight: 400;
+            color: #1a1a1a;
+            letter-spacing: 8px;
+        }
+
+        nav {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+            font-weight: 400;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* 홈 섹션 */
+        .home-section {
+            margin-top: 60px;
+            background-color: white;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 70vh;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234a6741" width="1200" height="800"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            color: white;
+            font-size: 13px;
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+
+        .center-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 60px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .content-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23e8e3db" width="800" height="600"/></svg>');
+            background-size: cover;
+        }
+
+        .content-text {
+            padding-top: 20px;
+        }
+
+        .content-text h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .content-text p {
+            line-height: 2;
+            font-size: 15px;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 소개 섹션 */
+        .about-section {
+            background-color: #fafafa;
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-intro {
+            max-width: 900px;
+            margin-bottom: 80px;
+        }
+
+        .about-intro h2 {
+            font-size: 32px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .about-intro p {
+            line-height: 2.2;
+            font-size: 15px;
+            color: #4a4a4a;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .service-item h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .service-item p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .career-section {
+            margin-top: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .career-block h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .career-block ul {
+            list-style: none;
+        }
+
+        .career-block li {
+            padding-left: 0;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .career-block li:before {
+            content: "• ";
+            margin-right: 10px;
+            color: #5a7a5a;
+        }
+
+        /* 작품 섹션 */
+        .works-section {
+            background-color: white;
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .work-item {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .work-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .work-image {
+            width: 100%;
+            background: #e8e3db;
+            margin-bottom: 20px;
+        }
+
+        .work-info {
+            text-align: left;
+        }
+
+        .work-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .work-subtitle {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 5px;
+            letter-spacing: 0.3px;
+        }
+
+        .work-year {
+            font-size: 13px;
+            color: #aaa;
+            letter-spacing: 0.3px;
+        }
+
+        /* 모달 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            transition: transform 0.3s;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            background: #c9b8a0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            min-height: 500px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            font-weight: 300;
+        }
+
+        /* 푸터 */
+        footer {
+            background: #1a1a1a;
+            padding: 60px;
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            letter-spacing: 12px;
+            font-weight: 300;
+        }
+
+        .footer-links h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid,
+            .career-section,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .works-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 30px;
+            }
+
+            .logo-title {
+                font-size: 16px;
+                letter-spacing: 4px;
+            }
+
+            nav {
+                gap: 25px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero-image {
+                height: 50vh;
+            }
+
+            .center-content,
+            .about-section,
+            .works-section {
+                padding: 60px 30px;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="v2_487">
-    <div class="v2_488">
-      <div class="v2_489">
-        <div class="v2_490">
-          <span class="v2_491">Crafting Timeless Landscapes for Over 30 Years</span>
+    <header>
+        <div class="logo" onclick="showHome()">
+            <div class="logo-title">맹구 김철수</div>
         </div>
+        <nav>
+            <a href="#" onclick="showAbout(); return false;">소개</a>
+            <a href="#" onclick="showWorks(); return false;">작품</a>
+        </nav>
+    </header>
 
-        <div class="v2_492">
-          <div class="v2_493">
-            <div class="name"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="v2_495">
-      <div class="v2_496">
-        <div class="v2_497">
-          <div class="name"></div>
-        </div>
-
-        <div class="v2_499">
-          <span class="v2_500">
-            For more than three decades, our dedicated team has cultivated a legacy of excellence in Raleigh and beyond. We bring seasoned expertise and meticulous craftsmanship to every project, transforming your vision into breathtaking landscapes that endure.
-          </span>
-          <div class="name"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="v2_502">
-      <div class="v2_503">
-        <div class="v2_504">
-          <div class="name"></div>
-        </div>
-      </div>
-
-      <div class="v2_506">
-        <div class="v2_507">
-          <div class="v2_508">
-            <div class="v2_509">
-              <div class="name"></div>
+    <!-- 홈 -->
+    <div id="home" class="home-section">
+        <div class="hero-image">
+            <div class="hero-text">
+                서각 예술의 깊이와 아름다움<br>
+                30년의 장인정신으로 만들어가는 작품 세계
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="v2_511">
-      <div class="v2_512">
-        <div class="name"></div>
-      </div>
-    </div>
-
-    <div class="v2_514">
-      <div class="v2_515">
-        <div class="v2_516">
-          <div class="name"></div>
+        <div class="center-content">
+            <div class="content-grid">
+                <div class="content-image"></div>
+                <div class="content-text">
+                    <h2>전통과 현대의 조화</h2>
+                    <p>
+                        서각은 나무나 돌에 글씨를 새기는 전통 예술입니다. 
+                        30년 이상 한 획 한 획 정성을 담아 새기는 작업을 통해 
+                        문자의 아름다움과 예술성을 표현해왔습니다.
+                    </p>
+                    <p>
+                        맹구 김철수는 전통 서각의 기법을 현대적으로 재해석하여 
+                        독창적인 작품 세계를 구축했으며, 각 작품마다 작가의 철학과 
+                        정신이 깊이 담겨 있습니다.
+                    </p>
+                    <p>
+                        자연의 질감과 문자의 조형미가 어우러진 작품들은 
+                        관람자에게 깊은 울림과 감동을 전달합니다.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="v2_518">
-        <span class="v2_519">
-          We offer a full range of services including design, installation, and maintenance. Explore our services page to see how we can transform your outdoor space.
-        </span>
-        <div class="name"></div>
-      </div>
     </div>
-  </div>
+
+    <!-- 소개 -->
+    <div id="about" class="about-section hidden">
+        <div class="about-intro">
+            <h2>예술가 소개</h2>
+            <p>
+                김철수는 30년간 서각 예술에 몰두해온 작가입니다. 
+                전통 기법을 바탕으로 현대적 감각을 더한 작품들은 
+                국내외에서 높은 평가를 받고 있습니다.
+            </p>
+            <p>
+                나무와 돌에 새겨진 글씨 하나하나에 작가의 철학과 
+                정신이 담겨 있으며, 한국 서각 예술의 아름다움을 
+                세계에 알리는 데 앞장서고 있습니다.
+            </p>
+            <p>
+                전통 서예와 조각의 경계를 넘나들며 독창적인 예술 세계를 
+                구축해온 김철수는 현재 후진 양성과 작품 활동을 병행하며 
+                서각 예술의 발전에 기여하고 있습니다.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>전통 서각 기법</h3>
+                <p>전통 방식을 계승하여 나무와 돌에 글씨를 새기는 정통 서각 작업</p>
+            </div>
+            <div class="service-item">
+                <h3>현대적 재해석</h3>
+                <p>전통과 현대를 조화시킨 독창적인 작품 세계 구현</p>
+            </div>
+            <div class="service-item">
+                <h3>맞춤 제작</h3>
+                <p>개인 및 기업을 위한 특별한 서각 작품 제작 서비스</p>
+            </div>
+        </div>
+
+        <div class="career-section">
+            <div class="career-block">
+                <h3>주요 경력</h3>
+                <ul>
+                    <li>대한민국 서각협회 이사 (2018 - 현재)</li>
+                    <li>전통공예대전 초대작가 (2015 - 현재)</li>
+                    <li>서울시립미술관 상설전시 작가 (2016 - 현재)</li>
+                    <li>국립현대미술관 소장작가 (2014 - 현재)</li>
+                    <li>한국예술종합학교 서각과 겸임교수 (2012 - 2020)</li>
+                    <li>개인전 15회 개최 (국내외)</li>
+                    <li>그룹전 및 기획전 다수 참여</li>
+                </ul>
+            </div>
+
+            <div class="career-block">
+                <h3>주요 수상</h3>
+                <ul>
+                    <li>대한민국 미술대전 대상 (2020)</li>
+                    <li>전통공예대전 금상 (2018)</li>
+                    <li>서울시 문화예술상 (2015)</li>
+                    <li>한국서각협회 작가상 (2012)</li>
+                    <li>대한민국 문화예술진흥원 우수작가상 (2010)</li>
+                    <li>아시아 전통공예 비엔날레 특별상 (2008)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 작품 -->
+    <div id="works" class="works-section hidden">
+        <div class="works-grid" id="worksGrid"></div>
+    </div>
+
+    <!-- 모달 -->
+    <div class="modal" id="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modalContent">
+            <div class="modal-image" id="modalImage"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">맹구김철수</div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <p>Email: info@maenggu-seogak.com</p>
+                <p>Tel: 02-1234-5678</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Studio</h4>
+                <p>서울특별시 종로구 인사동길 00</p>
+                <p>월-금 10:00 - 18:00</p>
+                <p>주말 및 공휴일 휴무</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const works = [
+            { title: "산수도", subtitle: "나무에 새긴 풍경", year: "2024", height: 400 },
+            { title: "청록", subtitle: "돌 위의 시", year: "2023", height: 320 },
+            { title: "묵향", subtitle: "먹빛 향기", year: "2024", height: 450 },
+            { title: "한류", subtitle: "흐르는 물결", year: "2023", height: 380 },
+            { title: "고요", subtitle: "정적의 미학", year: "2022", height: 350 },
+            { title: "풍경", subtitle: "사계절의 변화", year: "2024", height: 420 },
+            { title: "사계", subtitle: "시간의 흐름", year: "2023", height: 360 },
+            { title: "달빛", subtitle: "은은한 빛", year: "2022", height: 390 },
+            { title: "소나무", subtitle: "절개와 지조", year: "2024", height: 410 },
+            { title: "매화", subtitle: "봄의 전령", year: "2023", height: 340 },
+            { title: "난초", subtitle: "고결한 향기", year: "2024", height: 370 },
+            { title: "국화", subtitle: "가을의 품격", year: "2022", height: 400 }
+        ];
+
+        let currentScale = 1;
+
+        function createWorksGrid() {
+            const grid = document.getElementById('worksGrid');
+            grid.innerHTML = '';
+            
+            works.forEach((work, index) => {
+                const item = document.createElement('div');
+                item.className = 'work-item';
+                item.onclick = () => openModal(index);
+                
+                item.innerHTML = `
+                    <div class="work-image" style="height: ${work.height}px"></div>
+                    <div class="work-info">
+                        <div class="work-title">${work.title}</div>
+                        <div class="work-subtitle">${work.subtitle}</div>
+                        <div class="work-year">${work.year}</div>
+                    </div>
+                `;
+                
+                grid.appendChild(item);
+            });
+        }
+
+        function openModal(index) {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            const work = works[index];
+            
+            modalImage.textContent = `${work.title} - ${work.subtitle} (${work.year})`;
+            modalImage.style.height = '600px';
+            modal.classList.add('active');
+            currentScale = 1;
+            document.getElementById('modalContent').style.transform = `scale(${currentScale})`;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('modal').addEventListener('wheel', function(e) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            currentScale = Math.max(0.5, Math.min(3, currentScale + delta));
+            document.getElementById('modalContent').style.transform = `scale(${currentScale})`;
+        });
+
+        function showHome() {
+            document.getElementById('home').classList.remove('hidden');
+            document.getElementById('about').classList.add('hidden');
+            document.getElementById('works').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showAbout() {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('about').classList.remove('hidden');
+            document.getElementById('works').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showWorks() {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('about').classList.add('hidden');
+            document.getElementById('works').classList.remove('hidden');
+            createWorksGrid();
+            window.scrollTo(0, 0);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
