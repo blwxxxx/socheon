@@ -47,7 +47,9 @@
             font-size: 20px;
             font-weight: 400;
             color: #1a1a1a;
-            letter-spacing: 8px;
+            letter-spacing: 0px;
+            transform: scaleY(1.05);
+            transform-origin: bottom;
         }
 
         nav {
@@ -73,11 +75,24 @@
         .home-section {
             margin-top: 60px;
             background-color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            padding: 80px 60px 0;
         }
 
         .hero-image {
             width: 100%;
-            height: 70vh;
+            max-width: 1400px;
+            height: 60vh;
             background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), 
                         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234a6741" width="1200" height="800"/></svg>');
             background-size: cover;
@@ -87,8 +102,8 @@
 
         .hero-text {
             position: absolute;
-            bottom: 40px;
-            left: 60px;
+            bottom: 30px;
+            left: 40px;
             color: white;
             font-size: 13px;
             letter-spacing: 1px;
@@ -98,54 +113,47 @@
         .center-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 120px 60px;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
+            padding: 100px 60px 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .content-image {
-            width: 100%;
+            width: 50%;
             aspect-ratio: 4/3;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23e8e3db" width="800" height="600"/></svg>');
             background-size: cover;
+            margin-bottom: 30px;
         }
 
         .content-text {
-            padding-top: 20px;
-        }
-
-        .content-text h2 {
-            font-size: 28px;
-            font-weight: 400;
-            color: #1a1a1a;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
+            width: 50%;
         }
 
         .content-text p {
-            line-height: 2;
-            font-size: 15px;
+            line-height: 1.5;
+            font-size: 13px;
             color: #4a4a4a;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            letter-spacing: -0.2px;
+            transform: scaleY(1.12);
+            transform-origin: top;
         }
 
         /* 소개 섹션 */
         .about-section {
             background-color: #fafafa;
-            padding: 120px 60px;
+            padding: 150px 60px 120px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .about-intro {
-            max-width: 900px;
-            margin-bottom: 80px;
+        .about-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
         }
 
         .about-intro h2 {
@@ -157,18 +165,90 @@
         }
 
         .about-intro p {
-            line-height: 2.2;
+            line-height: 1.8;
             font-size: 15px;
             color: #4a4a4a;
-            margin-bottom: 25px;
             letter-spacing: 0.5px;
         }
 
-        .services-grid {
+        .about-image-right {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .about-image-right .about-photo {
+            width: 66.66%;
+            aspect-ratio: 3/4;
+            background: #e8e3db;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: #5a7a5a;
+            margin: 60px 0;
+        }
+
+        .career-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 60px;
-            margin-top: 80px;
+            margin-bottom: 60px;
+        }
+
+        .career-image-left {
+            grid-column: 1 / 3;
+        }
+
+        .career-image-left .career-photo {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #e8e3db;
+        }
+
+        .career-titles {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .career-titles h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .career-lists ul {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .career-lists li {
+            padding-left: 0;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+            font-size: 14px;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .career-lists li:before {
+            content: "• ";
+            margin-right: 10px;
+            color: #5a7a5a;
+        }
+
+        .services-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .services-left {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
         .service-item h3 {
@@ -186,40 +266,6 @@
             letter-spacing: 0.3px;
         }
 
-        .career-section {
-            margin-top: 100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .career-block h3 {
-            font-size: 20px;
-            font-weight: 500;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-
-        .career-block ul {
-            list-style: none;
-        }
-
-        .career-block li {
-            padding-left: 0;
-            margin-bottom: 15px;
-            color: #4a4a4a;
-            font-size: 14px;
-            line-height: 1.8;
-            letter-spacing: 0.3px;
-        }
-
-        .career-block li:before {
-            content: "• ";
-            margin-right: 10px;
-            color: #5a7a5a;
-        }
-
         /* 작품 섹션 */
         .works-section {
             background-color: white;
@@ -228,13 +274,14 @@
             margin: 0 auto;
         }
 
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 30px;
         }
 
         .work-item {
+            break-inside: avoid;
+            margin-bottom: 40px;
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -246,7 +293,8 @@
         .work-image {
             width: 100%;
             background: #e8e3db;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            display: block;
         }
 
         .work-info {
@@ -257,21 +305,23 @@
             font-size: 16px;
             font-weight: 500;
             color: #1a1a1a;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             letter-spacing: 0.5px;
         }
 
         .work-subtitle {
             font-size: 13px;
             color: #888;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
             letter-spacing: 0.3px;
+            line-height: 1;
         }
 
         .work-year {
             font-size: 13px;
-            color: #aaa;
+            color: #5a7a5a;
             letter-spacing: 0.3px;
+            line-height: 1;
         }
 
         /* 모달 */
@@ -299,15 +349,9 @@
         }
 
         .modal-image {
-            width: 100%;
-            height: auto;
-            background: #c9b8a0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            min-height: 500px;
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
         }
 
         .close-modal {
@@ -331,15 +375,17 @@
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .footer-logo {
             font-size: 24px;
-            letter-spacing: 12px;
+            letter-spacing: 0px;
             font-weight: 300;
+            transform: scaleY(1.05);
+            transform-origin: bottom;
         }
 
         .footer-links h4 {
@@ -349,24 +395,11 @@
             letter-spacing: 1px;
         }
 
-        .footer-links a {
-            display: block;
+        .footer-links p {
             color: #aaa;
-            text-decoration: none;
             font-size: 13px;
-            margin-bottom: 10px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-contact p {
-            font-size: 13px;
-            color: #aaa;
-            line-height: 1.8;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 300;
         }
 
         .hidden {
@@ -374,18 +407,21 @@
         }
 
         @media (max-width: 1024px) {
-            .content-grid,
-            .career-section,
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid {
+            .about-top,
+            .services-bottom {
                 grid-template-columns: 1fr;
             }
 
-            .works-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .career-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .career-image-left {
+                grid-column: 1 / 3;
+            }
+
+            .masonry-grid {
+                column-count: 2;
             }
         }
 
@@ -394,32 +430,38 @@
                 padding: 15px 30px;
             }
 
-            .logo-title {
-                font-size: 16px;
-                letter-spacing: 4px;
-            }
-
-            nav {
-                gap: 25px;
-            }
-
-            nav a {
-                font-size: 13px;
+            .hero-container {
+                padding: 60px 30px 0;
             }
 
             .hero-image {
                 height: 50vh;
             }
 
-            .center-content,
+            .center-content {
+                padding: 60px 30px;
+            }
+
+            .content-image,
+            .content-text {
+                width: 80%;
+            }
+
             .about-section,
             .works-section {
                 padding: 60px 30px;
             }
 
-            .works-grid {
+            .career-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+            }
+
+            .career-image-left {
+                grid-column: 1;
+            }
+
+            .masonry-grid {
+                column-count: 1;
             }
         }
     </style>
@@ -427,7 +469,7 @@
 <body>
     <header>
         <div class="logo" onclick="showHome()">
-            <div class="logo-title">맹구 김철수</div>
+            <div class="logo-title">맹구김철수</div>
         </div>
         <nav>
             <a href="#" onclick="showAbout(); return false;">소개</a>
@@ -437,75 +479,57 @@
 
     <!-- 홈 -->
     <div id="home" class="home-section">
-        <div class="hero-image">
-            <div class="hero-text">
-                서각 예술의 깊이와 아름다움<br>
-                30년의 장인정신으로 만들어가는 작품 세계
+        <div class="hero-container">
+            <div class="hero-image">
+                <div class="hero-text">서각 대상 수상작</div>
             </div>
         </div>
         <div class="center-content">
-            <div class="content-grid">
-                <div class="content-image"></div>
-                <div class="content-text">
-                    <h2>전통과 현대의 조화</h2>
-                    <p>
-                        서각은 나무나 돌에 글씨를 새기는 전통 예술입니다. 
-                        30년 이상 한 획 한 획 정성을 담아 새기는 작업을 통해 
-                        문자의 아름다움과 예술성을 표현해왔습니다.
-                    </p>
-                    <p>
-                        맹구 김철수는 전통 서각의 기법을 현대적으로 재해석하여 
-                        독창적인 작품 세계를 구축했으며, 각 작품마다 작가의 철학과 
-                        정신이 깊이 담겨 있습니다.
-                    </p>
-                    <p>
-                        자연의 질감과 문자의 조형미가 어우러진 작품들은 
-                        관람자에게 깊은 울림과 감동을 전달합니다.
-                    </p>
-                </div>
+            <div class="content-image"></div>
+            <div class="content-text">
+                <p>
+                    서각은 나무나 돌에 글씨를 새기는 전통 예술입니다. 
+                    30년 이상 한 획 한 획 정성을 담아 새기는 작업을 통해 
+                    문자의 아름다움과 예술성을 표현해왔습니다.
+                </p>
+                <p>
+                    맹구 김철수는 전통 서각의 기법을 현대적으로 재해석하여 
+                    독창적인 작품 세계를 구축했으며, 각 작품마다 작가의 철학과 
+                    정신이 깊이 담겨 있습니다.
+                </p>
+                <p>
+                    자연의 질감과 문자의 조형미가 어우러진 작품들은 
+                    관람자에게 깊은 울림과 감동을 전달합니다.
+                </p>
             </div>
         </div>
     </div>
 
     <!-- 소개 -->
     <div id="about" class="about-section hidden">
-        <div class="about-intro">
-            <h2>예술가 소개</h2>
-            <p>
-                김철수는 30년간 서각 예술에 몰두해온 작가입니다. 
-                전통 기법을 바탕으로 현대적 감각을 더한 작품들은 
-                국내외에서 높은 평가를 받고 있습니다.
-            </p>
-            <p>
-                나무와 돌에 새겨진 글씨 하나하나에 작가의 철학과 
-                정신이 담겨 있으며, 한국 서각 예술의 아름다움을 
-                세계에 알리는 데 앞장서고 있습니다.
-            </p>
-            <p>
-                전통 서예와 조각의 경계를 넘나들며 독창적인 예술 세계를 
-                구축해온 김철수는 현재 후진 양성과 작품 활동을 병행하며 
-                서각 예술의 발전에 기여하고 있습니다.
-            </p>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-item">
-                <h3>전통 서각 기법</h3>
-                <p>전통 방식을 계승하여 나무와 돌에 글씨를 새기는 정통 서각 작업</p>
+        <div class="about-top">
+            <div class="about-intro">
+                <h2>예술가 소개</h2>
+                <p>
+                    김철수는 30년간 서각 예술에 몰두해온 작가입니다. 전통 기법을 바탕으로 현대적 감각을 더한 작품들은 국내외에서 높은 평가를 받고 있습니다. 나무와 돌에 새겨진 글씨 하나하나에 작가의 철학과 정신이 담겨 있으며, 한국 서각 예술의 아름다움을 세계에 알리는 데 앞장서고 있습니다. 전통 서예와 조각의 경계를 넘나들며 독창적인 예술 세계를 구축해온 김철수는 현재 후진 양성과 작품 활동을 병행하며 서각 예술의 발전에 기여하고 있습니다.
+                </p>
             </div>
-            <div class="service-item">
-                <h3>현대적 재해석</h3>
-                <p>전통과 현대를 조화시킨 독창적인 작품 세계 구현</p>
-            </div>
-            <div class="service-item">
-                <h3>맞춤 제작</h3>
-                <p>개인 및 기업을 위한 특별한 서각 작품 제작 서비스</p>
+            <div class="about-image-right">
+                <div class="about-photo"></div>
             </div>
         </div>
 
-        <div class="career-section">
-            <div class="career-block">
+        <div class="divider"></div>
+
+        <div class="career-grid">
+            <div class="career-image-left">
+                <div class="career-photo"></div>
+            </div>
+            <div class="career-titles">
                 <h3>주요 경력</h3>
+                <h3>주요 수상</h3>
+            </div>
+            <div class="career-lists">
                 <ul>
                     <li>대한민국 서각협회 이사 (2018 - 현재)</li>
                     <li>전통공예대전 초대작가 (2015 - 현재)</li>
@@ -515,10 +539,6 @@
                     <li>개인전 15회 개최 (국내외)</li>
                     <li>그룹전 및 기획전 다수 참여</li>
                 </ul>
-            </div>
-
-            <div class="career-block">
-                <h3>주요 수상</h3>
                 <ul>
                     <li>대한민국 미술대전 대상 (2020)</li>
                     <li>전통공예대전 금상 (2018)</li>
@@ -529,18 +549,38 @@
                 </ul>
             </div>
         </div>
+
+        <div class="divider"></div>
+
+        <div class="services-bottom">
+            <div class="services-left">
+                <div class="service-item">
+                    <h3>전통 서각 기법</h3>
+                    <p>전통 방식을 계승하여 나무와 돌에 글씨를 새기는 정통 서각 작업</p>
+                </div>
+                <div class="service-item">
+                    <h3>현대적 재해석</h3>
+                    <p>전통과 현대를 조화시킨 독창적인 작품 세계 구현</p>
+                </div>
+                <div class="service-item">
+                    <h3>맞춤 제작</h3>
+                    <p>개인 및 기업을 위한 특별한 서각 작품 제작 서비스</p>
+                </div>
+            </div>
+            <div></div>
+        </div>
     </div>
 
     <!-- 작품 -->
     <div id="works" class="works-section hidden">
-        <div class="works-grid" id="worksGrid"></div>
+        <div class="masonry-grid" id="worksGrid"></div>
     </div>
 
     <!-- 모달 -->
     <div class="modal" id="modal">
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <div class="modal-content" id="modalContent">
-            <div class="modal-image" id="modalImage"></div>
+            <img class="modal-image" id="modalImage" src="" alt="">
         </div>
     </div>
 
@@ -552,29 +592,84 @@
                 <p>Email: info@maenggu-seogak.com</p>
                 <p>Tel: 02-1234-5678</p>
             </div>
-            <div class="footer-contact">
-                <h4>Studio</h4>
-                <p>서울특별시 종로구 인사동길 00</p>
-                <p>월-금 10:00 - 18:00</p>
-                <p>주말 및 공휴일 휴무</p>
-            </div>
         </div>
     </footer>
 
     <script>
+        // 작품 데이터 배열 - 여기에 이미지를 추가하세요
         const works = [
-            { title: "산수도", subtitle: "나무에 새긴 풍경", year: "2024", height: 400 },
-            { title: "청록", subtitle: "돌 위의 시", year: "2023", height: 320 },
-            { title: "묵향", subtitle: "먹빛 향기", year: "2024", height: 450 },
-            { title: "한류", subtitle: "흐르는 물결", year: "2023", height: 380 },
-            { title: "고요", subtitle: "정적의 미학", year: "2022", height: 350 },
-            { title: "풍경", subtitle: "사계절의 변화", year: "2024", height: 420 },
-            { title: "사계", subtitle: "시간의 흐름", year: "2023", height: 360 },
-            { title: "달빛", subtitle: "은은한 빛", year: "2022", height: 390 },
-            { title: "소나무", subtitle: "절개와 지조", year: "2024", height: 410 },
-            { title: "매화", subtitle: "봄의 전령", year: "2023", height: 340 },
-            { title: "난초", subtitle: "고결한 향기", year: "2024", height: 370 },
-            { title: "국화", subtitle: "가을의 품격", year: "2022", height: 400 }
+            { 
+                title: "산수도", 
+                subtitle: "나무에 새긴 풍경", 
+                year: "2024", 
+                image: "", // 이미지 URL을 여기에 입력
+                width: 400,
+                height: 500
+            },
+            { 
+                title: "청록", 
+                subtitle: "돌 위의 시", 
+                year: "2023", 
+                image: "",
+                width: 400,
+                height: 320
+            },
+            { 
+                title: "묵향", 
+                subtitle: "먹빛 향기", 
+                year: "2024", 
+                image: "",
+                width: 400,
+                height: 550
+            },
+            { 
+                title: "한류", 
+                subtitle: "흐르는 물결", 
+                year: "2023", 
+                image: "",
+                width: 400,
+                height: 450
+            },
+            { 
+                title: "고요", 
+                subtitle: "정적의 미학", 
+                year: "2022", 
+                image: "",
+                width: 400,
+                height: 380
+            },
+            { 
+                title: "풍경", 
+                subtitle: "사계절의 변화", 
+                year: "2024", 
+                image: "",
+                width: 400,
+                height: 480
+            },
+            { 
+                title: "사계", 
+                subtitle: "시간의 흐름", 
+                year: "2023", 
+                image: "",
+                width: 400,
+                height: 360
+            },
+            { 
+                title: "달빛", 
+                subtitle: "은은한 빛", 
+                year: "2022", 
+                image: "",
+                width: 400,
+                height: 420
+            },
+            { 
+                title: "소나무", 
+                subtitle: "절개와 지조", 
+                year: "2024", 
+                image: "",
+                width: 400,
+                height: 500
+            }
         ];
 
         let currentScale = 1;
@@ -588,8 +683,10 @@
                 item.className = 'work-item';
                 item.onclick = () => openModal(index);
                 
+                const aspectRatio = (work.height / work.width) * 100;
+                
                 item.innerHTML = `
-                    <div class="work-image" style="height: ${work.height}px"></div>
+                    <div class="work-image" style="padding-bottom: ${aspectRatio}%; background: ${work.image ? `url(${work.image})` : '#e8e3db'}; background-size: cover; background-position: center;"></div>
                     <div class="work-info">
                         <div class="work-title">${work.title}</div>
                         <div class="work-subtitle">${work.subtitle}</div>
@@ -606,8 +703,13 @@
             const modalImage = document.getElementById('modalImage');
             const work = works[index];
             
-            modalImage.textContent = `${work.title} - ${work.subtitle} (${work.year})`;
-            modalImage.style.height = '600px';
+            // 이미지가 있으면 실제 이미지를, 없으면 placeholder 표시
+            if (work.image) {
+                modalImage.src = work.image;
+            } else {
+                modalImage.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23c9b8a0" width="800" height="600"/><text x="50%" y="50%" font-size="24" fill="white" text-anchor="middle">작품 이미지</text></svg>';
+            }
+            
             modal.classList.add('active');
             currentScale = 1;
             document.getElementById('modalContent').style.transform = `scale(${currentScale})`;
