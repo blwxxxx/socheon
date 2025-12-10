@@ -40,16 +40,19 @@
             cursor: pointer;
             display: flex;
             align-items: baseline;
-            gap: 15px;
+            gap: 8px;
         }
 
-        .logo-title {
+        .logo-first {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .logo-second {
             font-size: 20px;
             font-weight: 400;
             color: #1a1a1a;
-            letter-spacing: 0px;
-            transform: scaleY(1.05);
-            transform-origin: bottom;
         }
 
         nav {
@@ -86,18 +89,18 @@
             justify-content: center;
             align-items: center;
             min-height: 70vh;
-            padding: 80px 60px 0;
+            padding: 80px 0 0;
         }
 
         .hero-image {
             width: 100%;
-            max-width: 1400px;
-            height: 60vh;
+            height: 75vh;
             background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%234a6741" width="1200" height="800"/></svg>');
+                        url('hero-image.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
+            cursor: pointer;
         }
 
         .hero-text {
@@ -113,7 +116,7 @@
         .center-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 100px 60px 120px;
+            padding: 200px 60px 120px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -122,8 +125,7 @@
         .content-image {
             width: 50%;
             aspect-ratio: 4/3;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23e8e3db" width="800" height="600"/></svg>');
-            background-size: cover;
+            background: url('content-image.jpg') center/cover;
             margin-bottom: 30px;
         }
 
@@ -137,8 +139,6 @@
             color: #4a4a4a;
             margin-bottom: 15px;
             letter-spacing: -0.2px;
-            transform: scaleY(1.12);
-            transform-origin: top;
         }
 
         /* 소개 섹션 */
@@ -153,7 +153,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            margin-bottom: 60px;
+            margin-bottom: 90px;
         }
 
         .about-intro h2 {
@@ -173,89 +173,108 @@
 
         .about-image-right {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
+            align-items: center;
         }
 
         .about-image-right .about-photo {
-            width: 66.66%;
+            width: 44.44%;
             aspect-ratio: 3/4;
-            background: #e8e3db;
+            background: url('about-image.jpg') center/cover, #e8e3db;
         }
 
         .divider {
             width: 100%;
             height: 1px;
             background: #5a7a5a;
-            margin: 60px 0;
+            margin: 90px 0;
         }
 
         .career-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 60px;
-            margin-bottom: 60px;
+            margin-bottom: 0;
         }
 
         .career-image-left {
-            grid-column: 1 / 3;
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .career-image-left .career-photo {
             width: 100%;
-            aspect-ratio: 16/9;
-            background: #e8e3db;
+            aspect-ratio: 1;
+            background: url('career-image.jpg') center/cover, #e8e3db;
         }
 
-        .career-titles {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+        .career-title-1 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
         }
 
-        .career-titles h3 {
+        .career-list-1 {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .career-title-2 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .career-list-2 {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+
+        .career-title h3 {
             font-size: 20px;
             font-weight: 500;
             color: #1a1a1a;
             letter-spacing: 1px;
         }
 
-        .career-lists ul {
+        .career-list ul {
             list-style: none;
-            margin-bottom: 40px;
         }
 
-        .career-lists li {
+        .career-list li {
             padding-left: 0;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             color: #4a4a4a;
             font-size: 14px;
-            line-height: 1.8;
+            line-height: 1.4;
             letter-spacing: 0.3px;
         }
 
-        .career-lists li:before {
+        .career-list li:before {
             content: "• ";
             margin-right: 10px;
             color: #5a7a5a;
         }
 
         .services-bottom {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            display: flex;
+            justify-content: flex-end;
         }
 
-        .services-left {
+        .services-right {
             display: flex;
             flex-direction: column;
             gap: 40px;
+            text-align: right;
+            max-width: 500px;
         }
 
         .service-item h3 {
             font-size: 18px;
             font-weight: 500;
             color: #1a1a1a;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
 
@@ -274,16 +293,17 @@
             margin: 0 auto;
         }
 
-        .masonry-grid {
-            column-count: 3;
-            column-gap: 30px;
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
         }
 
         .work-item {
-            break-inside: avoid;
-            margin-bottom: 40px;
             cursor: pointer;
             transition: transform 0.3s;
+            margin-bottom: 30px;
         }
 
         .work-item:hover {
@@ -380,12 +400,26 @@
             align-items: flex-start;
         }
 
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .footer-logo {
-            font-size: 24px;
+            font-size: 14px;
             letter-spacing: 0px;
             font-weight: 300;
-            transform: scaleY(1.05);
-            transform-origin: bottom;
+        }
+
+        .footer-logo-first {
+            font-weight: 600;
+        }
+
+        .footer-welcome {
+            font-size: 13px;
+            color: #aaa;
+            font-weight: 300;
         }
 
         .footer-links h4 {
@@ -407,8 +441,7 @@
         }
 
         @media (max-width: 1024px) {
-            .about-top,
-            .services-bottom {
+            .about-top {
                 grid-template-columns: 1fr;
             }
 
@@ -418,10 +451,31 @@
 
             .career-image-left {
                 grid-column: 1 / 3;
+                grid-row: 1 / 2;
             }
 
-            .masonry-grid {
-                column-count: 2;
+            .career-title-1 {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .career-list-1 {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+
+            .career-title-2 {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+
+            .career-list-2 {
+                grid-column: 2 / 3;
+                grid-row: 3 / 4;
+            }
+
+            .two-column-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -431,7 +485,7 @@
             }
 
             .hero-container {
-                padding: 60px 30px 0;
+                padding: 60px 0 0;
             }
 
             .hero-image {
@@ -439,7 +493,7 @@
             }
 
             .center-content {
-                padding: 60px 30px;
+                padding: 100px 30px 60px;
             }
 
             .content-image,
@@ -458,10 +512,7 @@
 
             .career-image-left {
                 grid-column: 1;
-            }
-
-            .masonry-grid {
-                column-count: 1;
+                grid-row: 1;
             }
         }
     </style>
@@ -469,7 +520,8 @@
 <body>
     <header>
         <div class="logo" onclick="showHome()">
-            <div class="logo-title">맹구김철수</div>
+            <span class="logo-first">맹구</span>
+            <span class="logo-second">김철수</span>
         </div>
         <nav>
             <a href="#" onclick="showAbout(); return false;">소개</a>
@@ -480,7 +532,7 @@
     <!-- 홈 -->
     <div id="home" class="home-section">
         <div class="hero-container">
-            <div class="hero-image">
+            <div class="hero-image" onclick="openHeroModal()">
                 <div class="hero-text">서각 대상 수상작</div>
             </div>
         </div>
@@ -525,11 +577,10 @@
             <div class="career-image-left">
                 <div class="career-photo"></div>
             </div>
-            <div class="career-titles">
+            <div class="career-title career-title-1">
                 <h3>주요 경력</h3>
-                <h3>주요 수상</h3>
             </div>
-            <div class="career-lists">
+            <div class="career-list career-list-1">
                 <ul>
                     <li>대한민국 서각협회 이사 (2018 - 현재)</li>
                     <li>전통공예대전 초대작가 (2015 - 현재)</li>
@@ -539,6 +590,11 @@
                     <li>개인전 15회 개최 (국내외)</li>
                     <li>그룹전 및 기획전 다수 참여</li>
                 </ul>
+            </div>
+            <div class="career-title career-title-2">
+                <h3>주요 수상</h3>
+            </div>
+            <div class="career-list career-list-2">
                 <ul>
                     <li>대한민국 미술대전 대상 (2020)</li>
                     <li>전통공예대전 금상 (2018)</li>
@@ -553,7 +609,7 @@
         <div class="divider"></div>
 
         <div class="services-bottom">
-            <div class="services-left">
+            <div class="services-right">
                 <div class="service-item">
                     <h3>전통 서각 기법</h3>
                     <p>전통 방식을 계승하여 나무와 돌에 글씨를 새기는 정통 서각 작업</p>
@@ -567,13 +623,12 @@
                     <p>개인 및 기업을 위한 특별한 서각 작품 제작 서비스</p>
                 </div>
             </div>
-            <div></div>
         </div>
     </div>
 
     <!-- 작품 -->
     <div id="works" class="works-section hidden">
-        <div class="masonry-grid" id="worksGrid"></div>
+        <div class="two-column-grid" id="worksGrid"></div>
     </div>
 
     <!-- 모달 -->
@@ -586,7 +641,12 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">맹구김철수</div>
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="footer-logo-first">맹구</span> 김철수
+                </div>
+                <div class="footer-welcome">상시 작품 판매 환영</div>
+            </div>
             <div class="footer-links">
                 <h4>Contact</h4>
                 <p>Email: info@maenggu-seogak.com</p>
@@ -596,13 +656,13 @@
     </footer>
 
     <script>
-        // 작품 데이터 배열 - 여기에 이미지를 추가하세요
+        // 작품 데이터 배열
         const works = [
             { 
                 title: "산수도", 
                 subtitle: "나무에 새긴 풍경", 
                 year: "2024", 
-                image: "", // 이미지 URL을 여기에 입력
+                image: "works/work1.jpg",
                 width: 400,
                 height: 500
             },
@@ -610,7 +670,7 @@
                 title: "청록", 
                 subtitle: "돌 위의 시", 
                 year: "2023", 
-                image: "",
+                image: "works/work2.jpg",
                 width: 400,
                 height: 320
             },
@@ -618,7 +678,7 @@
                 title: "묵향", 
                 subtitle: "먹빛 향기", 
                 year: "2024", 
-                image: "",
+                image: "works/work3.jpg",
                 width: 400,
                 height: 550
             },
@@ -626,7 +686,7 @@
                 title: "한류", 
                 subtitle: "흐르는 물결", 
                 year: "2023", 
-                image: "",
+                image: "works/work4.jpg",
                 width: 400,
                 height: 450
             },
@@ -634,7 +694,7 @@
                 title: "고요", 
                 subtitle: "정적의 미학", 
                 year: "2022", 
-                image: "",
+                image: "works/work5.jpg",
                 width: 400,
                 height: 380
             },
@@ -642,33 +702,9 @@
                 title: "풍경", 
                 subtitle: "사계절의 변화", 
                 year: "2024", 
-                image: "",
+                image: "works/work6.jpg",
                 width: 400,
                 height: 480
-            },
-            { 
-                title: "사계", 
-                subtitle: "시간의 흐름", 
-                year: "2023", 
-                image: "",
-                width: 400,
-                height: 360
-            },
-            { 
-                title: "달빛", 
-                subtitle: "은은한 빛", 
-                year: "2022", 
-                image: "",
-                width: 400,
-                height: 420
-            },
-            { 
-                title: "소나무", 
-                subtitle: "절개와 지조", 
-                year: "2024", 
-                image: "",
-                width: 400,
-                height: 500
             }
         ];
 
@@ -677,6 +713,10 @@
         function createWorksGrid() {
             const grid = document.getElementById('worksGrid');
             grid.innerHTML = '';
+            
+            // 2열로 나누기
+            const leftColumn = document.createElement('div');
+            const rightColumn = document.createElement('div');
             
             works.forEach((work, index) => {
                 const item = document.createElement('div');
@@ -694,8 +734,25 @@
                     </div>
                 `;
                 
-                grid.appendChild(item);
+                // 짝수는 왼쪽, 홀수는 오른쪽
+                if (index % 2 === 0) {
+                    leftColumn.appendChild(item);
+                } else {
+                    rightColumn.appendChild(item);
+                }
             });
+            
+            grid.appendChild(leftColumn);
+            grid.appendChild(rightColumn);
+        }
+
+        function openHeroModal() {
+            const modal = document.getElementById('modal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = 'hero-image.jpg';
+            modal.classList.add('active');
+            currentScale = 1;
+            document.getElementById('modalContent').style.transform = `scale(${currentScale})`;
         }
 
         function openModal(index) {
@@ -703,7 +760,6 @@
             const modalImage = document.getElementById('modalImage');
             const work = works[index];
             
-            // 이미지가 있으면 실제 이미지를, 없으면 placeholder 표시
             if (work.image) {
                 modalImage.src = work.image;
             } else {
