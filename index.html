@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>맹구 김철수 - 서각</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap');
 
@@ -35,7 +36,8 @@
             right: 60px;
             color: white;
             font-size: 23pt;
-            font-weight: 800;
+            font-weight: 400;
+            font-family: 'Nanum Myeongjo', serif;
             cursor: pointer;
             z-index: 100;
             transition: opacity 0.3s;
@@ -49,25 +51,42 @@
         /* 포트폴리오 섹션 */
         .portfolio-section {
             background: white;
-            padding: 30px 60px 120px;
+            padding: 180px 60px 240px;
         }
 
         .portfolio-header {
             text-align: center;
-            margin-bottom: 120px;
+            margin-bottom: 240px;
         }
 
         .title-image {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 40px;
             display: block;
+        }
+
+        .artist-name {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 35pt;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 15pt;
+            letter-spacing: 0.05em;
+        }
+
+        .portfolio-subtitle {
+            font-family: 'Nanum Myeongjo', serif;
+            font-size: 19pt;
+            font-weight: 400;
+            color: #4a4a4a;
+            letter-spacing: 0.05em;
         }
 
         /* 작품 갤러리 */
         .works-gallery {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 10px;
         }
 
         .work-item {
@@ -252,7 +271,9 @@
     <!-- 포트폴리오 섹션 -->
     <div class="portfolio-section">
         <div class="portfolio-header">
-            <img src="title-image.jpg" alt="맹구 김철수 서각 포트폴리오" class="title-image">
+            <img src="title-image.jpg" alt="타이틀 이미지" class="title-image">
+            <div class="artist-name">소천 김나나</div>
+            <div class="portfolio-subtitle">PORTFOLIO</div>
         </div>
 
         <div class="works-gallery" id="worksGallery"></div>
