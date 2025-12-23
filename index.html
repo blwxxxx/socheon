@@ -23,23 +23,23 @@
 
         /* 히어로 섹션 */
         .hero-section {
-            width: 100%;
-            height: 300vh;
+            width: 100vw;
+            height: 75vw;
             background: url('hero-image.jpg') center/cover;
             position: relative;
         }
 
         .contact-btn {
-            position: fixed;
+            position: absolute;
             top: 40px;
             right: 60px;
             color: white;
-            font-size: 30pt;
+            font-size: 23pt;
             font-weight: 800;
             cursor: pointer;
             z-index: 100;
             transition: opacity 0.3s;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.2em;
         }
 
         .contact-btn:hover {
@@ -49,7 +49,7 @@
         /* 포트폴리오 섹션 */
         .portfolio-section {
             background: white;
-            padding: 120px 60px;
+            padding: 30px 60px 120px;
         }
 
         .portfolio-header {
@@ -57,25 +57,17 @@
             margin-bottom: 120px;
         }
 
-        .portfolio-title {
-            font-size: 80pt;
-            font-weight: 800;
-            color: #1a1a1a;
-            margin-bottom: 100px;
-            letter-spacing: 2px;
-        }
-
-        .portfolio-subtitle {
-            font-size: 50pt;
-            font-weight: 300;
-            color: #4a4a4a;
-            letter-spacing: 3px;
+        .title-image {
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
         }
 
         /* 작품 갤러리 */
         .works-gallery {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 30px;
         }
 
         .work-item {
@@ -161,7 +153,7 @@
 
         .modal-year {
             font-size: 18px;
-            color: #5a7a5a;
+            color: #7a9a7a;
             letter-spacing: 0.3px;
         }
 
@@ -214,7 +206,7 @@
         }
 
         .footer-links h4 {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             margin-bottom: 20px;
             letter-spacing: 1px;
@@ -222,7 +214,7 @@
 
         .footer-links p {
             color: #aaa;
-            font-size: 13px;
+            font-size: 15px;
             margin-bottom: 8px;
             font-weight: 300;
         }
@@ -260,8 +252,7 @@
     <!-- 포트폴리오 섹션 -->
     <div class="portfolio-section">
         <div class="portfolio-header">
-            <div class="portfolio-title">맹구 김철수</div>
-            <div class="portfolio-subtitle">서각 포트폴리오</div>
+            <img src="title-image.jpg" alt="맹구 김철수 서각 포트폴리오" class="title-image">
         </div>
 
         <div class="works-gallery" id="worksGallery"></div>
