@@ -6,7 +6,7 @@
     <title>맹구 김철수 - 서각</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap');
 
@@ -64,8 +64,10 @@
         }
 
         .title-image {
-            max-width: 400px;
+            width: 200px;
+            height: 200px;
             display: block;
+            object-fit: cover;
         }
 
         .title-text-group {
@@ -75,20 +77,15 @@
         }
 
         .artist-name {
-            font-family: 'Diphylleia', serif;
+            font-family: 'Gowun Batang', serif;
             font-size: 32pt;
             font-weight: 400;
             color: #1a1a1a;
-            margin-bottom: 15pt;
             letter-spacing: 0.05em;
         }
 
         .portfolio-subtitle {
-            font-family: 'Nanum Myeongjo', serif;
-            font-size: 19pt;
-            font-weight: 400;
-            color: #4a4a4a;
-            letter-spacing: 0.05em;
+            display: none;
         }
 
         /* 작품 갤러리 */
@@ -99,9 +96,26 @@
         }
 
         .work-item {
-            margin-bottom: 150px;
+            margin-bottom: 300px;
             cursor: pointer;
             transition: transform 0.3s;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .work-item.visible {
+            animation: zoomIn 0.8s ease-out forwards;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .work-item:hover {
@@ -122,6 +136,27 @@
         .work-item.align-right {
             margin-left: auto;
             max-width: 60%;
+        }
+
+        .work-item.align-full-left {
+            margin-right: auto;
+            max-width: 65%;
+            margin-left: 30px;
+        }
+
+        .work-item.align-full-right {
+            margin-left: auto;
+            max-width: 65%;
+            margin-right: 0;
+        }
+
+        .work-item.first-work {
+            margin-left: 30px;
+            max-width: 120%;
+        }
+
+        .work-item.landscape {
+            max-width: 120% !important;
         }
 
         .work-image {
@@ -281,8 +316,10 @@
     <div class="portfolio-section">
         <div class="portfolio-header">
             <img src="title-image.jpg" alt="타이틀 이미지" class="title-image">
-            <div class="artist-name">소천 김나나</div>
-            <div class="portfolio-subtitle">PORTFOLIO</div>
+            <div class="title-text-group">
+                <div class="artist-name">소천 김나나</div>
+                <div class="portfolio-subtitle">PORTFOLIO</div>
+            </div>
         </div>
 
         <div class="works-gallery" id="worksGallery"></div>
@@ -318,24 +355,24 @@
         // 작품 데이터 - work1부터 work21까지
         const works = [
             { title: "산수도", year: "2024", image: "works/work1.jpg", width: 400, height: 500, align: "left" },
-            { title: "청록", year: "2023", image: "works/work2.jpg", width: 400, height: 320, align: "right" },
+            { title: "청록", year: "2023", image: "works/work2.jpg", width: 400, height: 320, align: "full-right" },
             { title: "묵향", year: "2024", image: "works/work3.jpg", width: 400, height: 550, align: "center" },
-            { title: "한류", year: "2023", image: "works/work4.jpg", width: 400, height: 450, align: "left" },
+            { title: "한류", year: "2023", image: "works/work4.jpg", width: 400, height: 450, align: "full-left" },
             { title: "고요", year: "2022", image: "works/work5.jpg", width: 400, height: 380, align: "right" },
             { title: "풍경", year: "2024", image: "works/work6.jpg", width: 400, height: 480, align: "center" },
-            { title: "사계", year: "2023", image: "works/work7.jpg", width: 400, height: 360, align: "left" },
+            { title: "사계", year: "2023", image: "works/work7.jpg", width: 400, height: 360, align: "full-left" },
             { title: "달빛", year: "2022", image: "works/work8.jpg", width: 400, height: 420, align: "right" },
             { title: "소나무", year: "2024", image: "works/work9.jpg", width: 400, height: 500, align: "center" },
             { title: "매화", year: "2023", image: "works/work10.jpg", width: 400, height: 340, align: "left" },
-            { title: "난초", year: "2024", image: "works/work11.jpg", width: 400, height: 370, align: "right" },
+            { title: "난초", year: "2024", image: "works/work11.jpg", width: 400, height: 370, align: "full-right" },
             { title: "국화", year: "2022", image: "works/work12.jpg", width: 400, height: 400, align: "center" },
-            { title: "대나무", year: "2024", image: "works/work13.jpg", width: 400, height: 460, align: "left" },
+            { title: "대나무", year: "2024", image: "works/work13.jpg", width: 400, height: 460, align: "full-left" },
             { title: "연꽃", year: "2023", image: "works/work14.jpg", width: 400, height: 380, align: "right" },
             { title: "학", year: "2024", image: "works/work15.jpg", width: 400, height: 520, align: "center" },
             { title: "호랑이", year: "2023", image: "works/work16.jpg", width: 400, height: 440, align: "left" },
-            { title: "구름", year: "2022", image: "works/work17.jpg", width: 400, height: 390, align: "right" },
+            { title: "구름", year: "2022", image: "works/work17.jpg", width: 400, height: 390, align: "full-right" },
             { title: "바다", year: "2024", image: "works/work18.jpg", width: 400, height: 470, align: "center" },
-            { title: "하늘", year: "2023", image: "works/work19.jpg", width: 400, height: 410, align: "left" },
+            { title: "하늘", year: "2023", image: "works/work19.jpg", width: 400, height: 410, align: "full-left" },
             { title: "별", year: "2024", image: "works/work20.jpg", width: 400, height: 350, align: "right" },
             { title: "해", year: "2022", image: "works/work21.jpg", width: 400, height: 480, align: "center" }
         ];
@@ -349,7 +386,19 @@
             
             works.forEach((work, index) => {
                 const item = document.createElement('div');
-                item.className = `work-item align-${work.align}`;
+                let itemClass = `work-item align-${work.align}`;
+                
+                // 첫 번째 작품
+                if (index === 0) {
+                    itemClass += ' first-work';
+                }
+                
+                // 가로가 긴 이미지 (가로 > 세로)
+                if (work.width > work.height) {
+                    itemClass += ' landscape';
+                }
+                
+                item.className = itemClass;
                 item.onclick = () => openModal(index);
                 
                 const img = document.createElement('img');
@@ -359,6 +408,23 @@
                 
                 item.appendChild(img);
                 gallery.appendChild(item);
+            });
+            
+            // Intersection Observer로 스크롤 애니메이션
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            document.querySelectorAll('.work-item').forEach(item => {
+                observer.observe(item);
             });
         }
 
