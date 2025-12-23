@@ -64,35 +64,30 @@
         }
 
         .title-image {
-            width: 200px;
+            width: 500px;
             height: 200px;
             display: block;
             object-fit: cover;
+            margin: 0 auto;
         }
 
         .title-text-group {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .artist-name {
-            font-family: 'Gowun Batang', serif;
-            font-size: 32pt;
-            font-weight: 400;
-            color: #1a1a1a;
-            letter-spacing: 0.05em;
-        }
-
-        .portfolio-subtitle {
             display: none;
         }
 
         /* 작품 갤러리 */
         .works-gallery {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 200px;
             padding: 0 10px;
+        }
+
+        /* 하단 이미지 */
+        .bottom-image {
+            width: 100vw;
+            height: 75vw;
+            background: url('bottom-image.jpg') center/cover;
+            margin: 0;
         }
 
         .work-item {
@@ -261,6 +256,7 @@
             background: #1a1a1a;
             padding: 80px 60px;
             color: white;
+            margin: 0;
         }
 
         .footer-content {
@@ -316,13 +312,11 @@
     <div class="portfolio-section">
         <div class="portfolio-header">
             <img src="title-image.jpg" alt="타이틀 이미지" class="title-image">
-            <div class="title-text-group">
-                <div class="artist-name">소천 김나나</div>
-                <div class="portfolio-subtitle">PORTFOLIO</div>
-            </div>
         </div>
 
         <div class="works-gallery" id="worksGallery"></div>
+        
+        <div class="bottom-image"></div>
     </div>
 
     <!-- 모달 -->
@@ -352,29 +346,29 @@
     </footer>
 
     <script>
-        // 작품 데이터 - work1부터 work21까지
+        // 작품 데이터 - work1부터 work21까지 (work20 제외)
         const works = [
-            { title: "산수도", year: "2024", image: "works/work1.jpg", width: 400, height: 500, align: "left" },
-            { title: "청록", year: "2023", image: "works/work2.jpg", width: 400, height: 320, align: "full-right" },
-            { title: "묵향", year: "2024", image: "works/work3.jpg", width: 400, height: 550, align: "center" },
-            { title: "한류", year: "2023", image: "works/work4.jpg", width: 400, height: 450, align: "full-left" },
-            { title: "고요", year: "2022", image: "works/work5.jpg", width: 400, height: 380, align: "right" },
-            { title: "풍경", year: "2024", image: "works/work6.jpg", width: 400, height: 480, align: "center" },
-            { title: "사계", year: "2023", image: "works/work7.jpg", width: 400, height: 360, align: "full-left" },
-            { title: "달빛", year: "2022", image: "works/work8.jpg", width: 400, height: 420, align: "right" },
-            { title: "소나무", year: "2024", image: "works/work9.jpg", width: 400, height: 500, align: "center" },
-            { title: "매화", year: "2023", image: "works/work10.jpg", width: 400, height: 340, align: "left" },
-            { title: "난초", year: "2024", image: "works/work11.jpg", width: 400, height: 370, align: "full-right" },
-            { title: "국화", year: "2022", image: "works/work12.jpg", width: 400, height: 400, align: "center" },
-            { title: "대나무", year: "2024", image: "works/work13.jpg", width: 400, height: 460, align: "full-left" },
-            { title: "연꽃", year: "2023", image: "works/work14.jpg", width: 400, height: 380, align: "right" },
-            { title: "학", year: "2024", image: "works/work15.jpg", width: 400, height: 520, align: "center" },
-            { title: "호랑이", year: "2023", image: "works/work16.jpg", width: 400, height: 440, align: "left" },
-            { title: "구름", year: "2022", image: "works/work17.jpg", width: 400, height: 390, align: "full-right" },
-            { title: "바다", year: "2024", image: "works/work18.jpg", width: 400, height: 470, align: "center" },
-            { title: "하늘", year: "2023", image: "works/work19.jpg", width: 400, height: 410, align: "full-left" },
-            { title: "별", year: "2024", image: "works/work20.jpg", width: 400, height: 350, align: "right" },
-            { title: "해", year: "2022", image: "works/work21.jpg", width: 400, height: 480, align: "center" }
+            { title: "사랑하는 자여", year: "2025", image: "works/work1.jpg", width: 400, height: 500, align: "left" },
+            { title: "노송도", year: "2025", image: "works/work2.jpg", width: 400, height: 320, align: "full-right" },
+            { title: "다반향초", year: "2024", image: "works/work3.jpg", width: 400, height: 550, align: "center" },
+            { title: "황금구어도", year: "2023", image: "works/work4.jpg", width: 400, height: 450, align: "full-left" },
+            { title: "해품은달", year: "2023", image: "works/work5.jpg", width: 400, height: 380, align: "right" },
+            { title: "무이심", year: "2023", image: "works/work6.jpg", width: 400, height: 480, align: "center" },
+            { title: "천상운집고목", year: "2023", image: "works/work7.jpg", width: 400, height: 360, align: "full-left" },
+            { title: "매화마을", year: "2023", image: "works/work8.jpg", width: 400, height: 420, align: "right" },
+            { title: "꽃길", year: "2023", image: "works/work9.jpg", width: 400, height: 500, align: "center" },
+            { title: "구어도", year: "2023", image: "works/work10.jpg", width: 400, height: 340, align: "left" },
+            { title: "해바라기", year: "2022", image: "works/work11.jpg", width: 400, height: 370, align: "full-right" },
+            { title: "신애인화", year: "2022", image: "works/work12.jpg", width: 400, height: 400, align: "center" },
+            { title: "역지사지", year: "2022", image: "works/work13.jpg", width: 400, height: 460, align: "full-left" },
+            { title: "사랑도 행복도", year: "2022", image: "works/work14.jpg", width: 400, height: 380, align: "right" },
+            { title: "바람과 구름과 비", year: "2022", image: "works/work15.jpg", width: 400, height: 520, align: "center" },
+            { title: "무심천득", year: "2022", image: "works/work16.jpg", width: 400, height: 440, align: "left" },
+            { title: "청정무욕", year: "2021", image: "works/work17.jpg", width: 400, height: 390, align: "full-right" },
+            { title: "일심", year: "2021", image: "works/work18.jpg", width: 400, height: 470, align: "center" },
+            { title: "죽성", year: "2021", image: "works/work19.jpg", width: 400, height: 410, align: "full-left" },
+            { title: "인자애주옥", year: "2021", image: "works/work21.jpg", width: 400, height: 480, align: "center" },
+            { title: "동행", year: "2021", image: "works/work21.jpg", width: 400, height: 480, align: "center" }
         ];
 
         let currentImageIndex = 0;
