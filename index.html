@@ -52,7 +52,7 @@
         /* 포트폴리오 섹션 */
         .portfolio-section {
             background: white;
-            padding: 180px 60px 240px;
+            padding: 180px 60px 0;
         }
 
         .portfolio-header {
@@ -69,6 +69,19 @@
             display: block;
             object-fit: cover;
             margin: 0 auto;
+            opacity: 0;
+            animation: fadeInDown 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .title-text-group {
@@ -88,6 +101,8 @@
             height: 75vw;
             background: url('bottom-image.jpg') center/cover;
             margin: 0;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
         }
 
         .work-item {
@@ -152,6 +167,39 @@
 
         .work-item.landscape {
             max-width: 120% !important;
+        }
+
+        /* 개별 작품 크기 조정 */
+        .work-item.work-3 {
+            max-width: 40% !important;
+        }
+
+        .work-item.work-9 {
+            max-width: 20% !important;
+        }
+
+        .work-item.work-13 {
+            max-width: 97.5% !important;
+        }
+
+        .work-item.work-16 {
+            max-width: 90% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .work-item.work-17 {
+            max-width: 32.5% !important;
+        }
+
+        .work-item.work-18 {
+            max-width: 119% !important;
+        }
+
+        .work-item.work-19 {
+            max-width: 97.5% !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         .work-image {
@@ -367,7 +415,6 @@
             { title: "청정무욕", year: "2021", image: "works/work17.jpg", width: 400, height: 390, align: "full-right" },
             { title: "일심", year: "2021", image: "works/work18.jpg", width: 400, height: 470, align: "center" },
             { title: "죽성", year: "2021", image: "works/work19.jpg", width: 400, height: 410, align: "full-left" },
-            { title: "인자애주옥", year: "2021", image: "works/work21.jpg", width: 400, height: 480, align: "center" },
             { title: "동행", year: "2021", image: "works/work21.jpg", width: 400, height: 480, align: "center" }
         ];
 
@@ -391,6 +438,9 @@
                 if (work.width > work.height) {
                     itemClass += ' landscape';
                 }
+                
+                // 개별 작품 클래스 추가
+                itemClass += ` work-${index + 1}`;
                 
                 item.className = itemClass;
                 item.onclick = () => openModal(index);
